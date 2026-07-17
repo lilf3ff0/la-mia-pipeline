@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "la-mia-app",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test",
+    "build": "node build.js"
+  }
+}
