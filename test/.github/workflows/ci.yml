@@ -1,0 +1,15 @@
+# .github/workflows/ci.yml
+name: CI
+on: [push, pull_request]          # parte su push E su PR
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6           # prende il codice
+      - uses: actions/setup-node@v6
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci                          # install
+      - run: npm test                        # verifica
+      - run: npm run build                   # build
+      - uses: actions/upload-artifact@v4
+        with: { name: dist, path: dist/ }    # salva l'output
